@@ -1,0 +1,91 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+  html,
+  body,
+  #root {
+    height: 100%;
+  }
+  body {
+    margin: 0;
+    background-color: #070b1a;
+    color: #e2e8f0;
+    font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+@layer components {
+  .glass-card {
+    background: linear-gradient(160deg, rgba(20, 30, 60, 0.72), rgba(12, 18, 38, 0.72));
+    border: 1px solid rgba(56, 90, 160, 0.22);
+    border-radius: 1rem;
+    backdrop-filter: blur(14px);
+    box-shadow: 0 12px 40px -12px rgba(0, 0, 0, 0.55);
+  }
+  .glass-card-hover {
+    transition: border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+  }
+  .glass-card-hover:hover {
+    border-color: rgba(56, 189, 248, 0.45);
+    transform: translateY(-2px);
+    box-shadow: 0 18px 50px -12px rgba(0, 0, 0, 0.65);
+  }
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    padding: 0.15rem 0.5rem;
+    border-radius: 9999px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    line-height: 1;
+    white-space: nowrap;
+  }
+}
+
+@layer utilities {
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background: rgba(56, 90, 160, 0.4);
+    border-radius: 9999px;
+  }
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  @keyframes pulse-ring {
+    0% {
+      box-shadow: 0 0 0 0 rgba(244, 63, 94, 0.45);
+    }
+    70% {
+      box-shadow: 0 0 0 8px rgba(244, 63, 94, 0);
+    }
+    100% {
+      box-shadow: 0 0 0 0 rgba(244, 63, 94, 0);
+    }
+  }
+  .pulse-ring {
+    animation: pulse-ring 2s infinite;
+  }
+  @keyframes fade-in-up {
+    from {
+      opacity: 0;
+      transform: translateY(8px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  .fade-in-up {
+    animation: fade-in-up 0.4s ease both;
+  }
+}
